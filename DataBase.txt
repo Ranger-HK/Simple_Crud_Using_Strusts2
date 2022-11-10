@@ -1,0 +1,31 @@
+CREATE DATABASE IF NOT EXISTS `Simple_Crud_Using_Strusts2`;
+SHOW DATABASES;
+USE `Simple_Crud_Using_Strusts2`;
+
+CREATE TABLE IF NOT EXISTS Registration(
+	userID VARCHAR(10),
+	userName VARCHAR(45) NOT NULL DEFAULT 'Unknown',
+	address VARCHAR(25) NOT NULL,
+	email VARCHAR(28),
+	contact VARCHAR(24),
+	password BLOB NOT NULL,
+	createTime VARCHAR(50),
+	lastUpdateTime VARCHAR(50),
+	CONSTRAINT PRIMARY KEY (userID),
+	CONSTRAINT UNIQUE KEY (userName),
+	CONSTRAINT UNIQUE KEY (email),
+	CONSTRAINT UNIQUE KEY (contact)		
+); 
+
+SHOW TABLES;
+DESC Registration;
+
+INSERT INTO Registration VALUES
+('U001','Ravindu','Bandaragama','ravindu9@gmail.com','+94764618605','1999');
+
+select * from registration;
+
+
+drop table Registration;
+
+Simple_Crud_Using_Strusts2
