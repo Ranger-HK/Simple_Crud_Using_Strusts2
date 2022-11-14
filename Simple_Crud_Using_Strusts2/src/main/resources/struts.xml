@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    
+    <include file="example.xml"/>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default,json-default">
+        <interceptors> 
+            <interceptor-stack name="defaultStack"> 
+                <interceptor-ref name="json"> 
+                    <param name="enableSMD">true</param> 
+                </interceptor-ref> 
+            </interceptor-stack> 
+        </interceptors>
+        
+        <action name="registeruser" class="com.mycompany.simple_crud_using_strusts2.action.RegisterAction" method="execute">
+            <result name="REGISTER" type="json">
+                Registration.jsp
+                <!--                                <param name="root"></param>-->
+                <!--                SignUp.jsp-->
+            </result>
+        </action>
+        
+       
+    </package>
+    
+</struts>
