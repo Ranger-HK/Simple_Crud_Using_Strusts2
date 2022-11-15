@@ -17,13 +17,22 @@
         </interceptors>
         
         <action name="registeruser" class="com.mycompany.simple_crud_using_strusts2.action.RegisterAction" method="execute">
-            <result name="REGISTER" type="json">
-                Registration.jsp
-                <!--                                <param name="root"></param>-->
-                <!--                SignUp.jsp-->
+            <result type="json">
+                <param name="root">result</param>
             </result>
         </action>
         
+        <action name="loginuser" class="com.mycompany.simple_crud_using_strusts2.action.LoginAction" method="execute">
+            <result name="success" type="json">
+                <param name="root">result</param>           
+            </result>
+        </action>
+        
+        <action name="report" class="com.mycompany.simple_crud_using_strusts2.action.RegisterAction" method="getAllUser">
+            <result name="success" type="json">
+                <param name="root"></param>           
+            </result>
+        </action>
        
     </package>
     
