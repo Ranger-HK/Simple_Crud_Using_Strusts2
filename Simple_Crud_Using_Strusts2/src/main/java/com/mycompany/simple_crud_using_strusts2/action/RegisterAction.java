@@ -21,11 +21,12 @@ public class RegisterAction extends ActionSupport  {
         
         HttpServletResponse response = ServletActionContext.getResponse();
         HttpServletRequest request = ServletActionContext.getRequest();
-        
+        System.out.println("he");
         response.setContentType("application/json");
         PrintWriter writer = response.getWriter();
         String userID = request.getParameter("userID");
         return SUCCESS;
+        
     }
     
 }
