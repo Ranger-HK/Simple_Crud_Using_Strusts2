@@ -25,9 +25,6 @@ public class RegisterAction extends ActionSupport  {
         response.setContentType("application/json");
         PrintWriter writer = response.getWriter();
         String userID = request.getParameter("userID");
-        System.out.println(userID);
-//        JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
-        //return "REGISTER";
         return SUCCESS;
     }
     
