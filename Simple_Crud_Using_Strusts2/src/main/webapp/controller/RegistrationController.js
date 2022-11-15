@@ -32,11 +32,11 @@ function registrationUser() {
 
     /*----------------------ajax for saveCustomer function---------------------------*/
     $.ajax({
-        url: "http://localhost:8080/Simple_Crud_Project/Registration",
+        url: "registeruser",
         method: "POST",
-        data: JSON.stringify(user),
+        data: "userID=" + user.userID + "&" + "userName=" + user.userName + "&" + "address=" + user.address + "&" + "email=" + user.email + "&" + "contact=" + user.contact + "&" + "password=" + user.password, //if we send data with the request
         success: function (res) {
-            if (res.status == 200) {
+            if (res.status == "200") {
                 swal("New User Registration Success!", "You clicked the button!", "success");
                 $("#txtuserID").val("");
                 $("#txtuserName").val("");

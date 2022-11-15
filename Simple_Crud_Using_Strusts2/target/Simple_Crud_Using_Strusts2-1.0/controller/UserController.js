@@ -9,7 +9,7 @@ function loadAllUsers() {
     /*invoked ajax for send a request*/
     $("#userTable").empty();
     $.ajax({
-        url: "http://localhost:8080/Simple_Crud_Project/Registration",
+        url: "report",
         method: "GET",
         //convert to json format
         dataType: "json",

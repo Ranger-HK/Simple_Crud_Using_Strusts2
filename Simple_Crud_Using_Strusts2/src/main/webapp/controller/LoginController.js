@@ -17,13 +17,12 @@ $("#btnLog").click(function () {
 
 //invoked ajax
     $.ajax({
-        url: 'http://localhost:8080/Simple_Crud_Project/Login',
+        url: 'loginuser',
         method: 'POST',
-
-        data: JSON.stringify(obj),
+       data: "userName=" + obj.userName + "&password=" + obj.password,
         success: function (res) {
             console.log(res);
-            if (res.status == 200) {
+            if (res.status == "200") {
                 swal("Login success!", "You clicked the button!", "success");
                 window.location = "Home.jsp";
 
