@@ -8,15 +8,19 @@ import com.mycompany.simple_crud_using_strusts2.db.DbConnection;
 import com.mycompany.simple_crud_using_strusts2.model.Registration;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
- * @author atlas
+ * @author Ravindu
  */
 public class RegistrationDao {
-    public boolean registerUser(Registration registration) throws ClassNotFoundException, SQLException{
-        DbConnection dbConnection = new DbConnection();
+
+    DbConnection dbConnection = new DbConnection();
+
+    public boolean registerUser(Registration registration) throws ClassNotFoundException, SQLException {
         Connection connection = dbConnection.getConnection();
         PreparedStatement pstm = connection.prepareStatement("insert into Registration values(?,?,?,?,?,?,?,?)");
         pstm.setObject(1, registration.getUserID());
@@ -27,8 +31,35 @@ public class RegistrationDao {
         pstm.setObject(6, registration.getPassword());
         pstm.setObject(7, registration.getCreateTime());
         pstm.setObject(8, registration.getLastUpdateTime());
-        return pstm.executeUpdate()>0;
+        if (pstm.executeUpdate() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
-    
-    
+
+    public ArrayList<Registration> report() throws SQLException, ClassNotFoundException {
+        Connection connection = dbConnection.getConnection();
+        PreparedStatement pstm = connection.prepareStatement("select * from Registration");
+        ResultSet rst = pstm.executeQuery();
+        //System.out.println(rst.getObject(1));
+        ArrayList<Registration> load = new ArrayList<>();
+        while (rst.next()) {
+            Registration registration = new Registration(
+                    rst.getString(1),
+                    rst.getString(2),
+                    rst.getString(3),
+                    rst.getString(4),
+                    rst.getString(5),
+                    rst.getString(6),
+                    rst.getString(7),
+                    rst.getString(8)
+            );
+            load.add(registration);
+        }
+
+        return load;
+    }
+
 }
